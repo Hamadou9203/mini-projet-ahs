@@ -22,7 +22,7 @@ variables:
    - sleep 10
    - docker ps
    - apk add --no-cache curl 
-   - curl http://$DOMAIN:$EXT_PORT | grep -q "Hello"
+   - curl http://flask:$EXT_PORT | grep -q "Hello"
 
 
 #check app code
