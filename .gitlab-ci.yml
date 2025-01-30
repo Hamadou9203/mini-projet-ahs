@@ -18,11 +18,11 @@ variables:
 .template_tests: &test
   script:
    - docker load -i flask-app.war
-   - docker run  -d -p $EXT_PORT:$INT_PORT --env PORT=$INT_PORT --name flask-app $DOCKER_IMAGE_NAME
+   - docker run  -d -p 80:5000 --env PORT=5000 --name flask-app $DOCKER_IMAGE_NAME
    - sleep 10
    - docker ps
    - apk add --no-cache curl 
-   - curl http://$DOMAIN:$EXT_PORT | grep -q "Hello"
+   - curl http://flask | grep -q "Hello"
 
 
 #check app code
@@ -33,7 +33,7 @@ linter_flake8:
      - python3 -m venv venv  # Créer un environnement virtuel
      - source venv/bin/activate  # Activer l'environnement virtuel
      - pip install flake8
-     - flake8 --ignore=E501,E303,F401 ./webapp/*.py
+     - flake8 --ignore=E501,E303 ./webapp/*.py
 
 # check Dockerfile
 linter_hadolink:
