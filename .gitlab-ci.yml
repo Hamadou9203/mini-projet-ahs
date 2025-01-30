@@ -73,8 +73,8 @@ scanning:
 Tests_Automatises:
   <<: *test
   stage: test_acceptance
- # variables:
-   # DOMAIN: "flask"
+  variables:
+    DOMAIN: "flask"
     
 
 
