@@ -2,3 +2,4 @@ gunicorn
 Flask
 Jinja2
 Werkzeug
+setuptools>=70.0.0
