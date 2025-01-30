@@ -2,7 +2,7 @@
 FROM python:3.13.0a2-alpine
 
 # Install python and pip
-RUN  apk add --no-cache --update python3=3.13.0-r0 py3-pip=21.3.1-r0 bash=5.1.8-r0
+RUN  apk add --no-cache --update python3=3.11.11-r0 py3-pip=23.3.1-r0 bash=5.2.21-r0
 COPY ./webapp/requirements.txt /tmp/requirements.txt
 
 # Install dependencies
