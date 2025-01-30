@@ -56,9 +56,16 @@ scanning:
     name: docker.io/aquasec/trivy:latest
     entrypoint: [""]
   stage: scan
-  
+  variables:
+    # No need to clone the repo, we exclusively work on artifacts.  See
+    # https://docs.gitlab.com/ee/ci/runners/README.html#git-strategy
+    GIT_STRATEGY: none
+    TRIVY_USERNAME: "$CI_REGISTRY_USER"
+    TRIVY_PASSWORD: "$CI_REGISTRY_PASSWORD"
+    TRIVY_AUTH_URL: "$CI_REGISTRY"
+    # FULL_IMAGE_NAME: "$DOCKER_IMAGE_NAME"
   script:
-    - docker load -i flask-app.war 
+    # - docker load -i flask-app.war 
     - trivy --version
     # cache cleanup is needed when scanning images with the same tags, it does not remove the database
     - time trivy image --clear-cache
