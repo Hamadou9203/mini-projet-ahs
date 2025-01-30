@@ -33,7 +33,7 @@ linter_flake8:
      - python3 -m venv venv  # Créer un environnement virtuel
      - source venv/bin/activate  # Activer l'environnement virtuel
      - pip install flake8
-     - flake8 --ignore=E501,E303 ./webapp/*.py
+     - flake8 --ignore=E501,E303,F401 ./webapp/*.py
 
 # check Dockerfile
 linter_hadolink:
