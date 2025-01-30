@@ -11,6 +11,7 @@ stages:
 variables:
     DOCKER_IMAGE_NAME: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
 
+#check app code
 linter_flake8:
    stage: lint
    script:
@@ -51,6 +52,8 @@ compilation:
 
 package:
  stage: release
+ before_script:
+    - echo $CI_REGISTRY_PASSWORD | docker login $CI_REGISTRY -u $CI_REGISTRY_USER --password-stdin
  only:
      - master
      - merge_requests
