@@ -2,7 +2,7 @@
 FROM python:3.13.0a2-alpine
 
 # Install python and pip
-RUN apk add --no-cache --update python3 py3-pip bash
+RUN  apk add --no-cache --update python3=3.13.0-r0 py3-pip=21.3.1-r0 bash=5.1.8-r0
 COPY ./webapp/requirements.txt /tmp/requirements.txt
 
 # Install dependencies
@@ -21,5 +21,5 @@ USER myuser
 
 # Run the app.  CMD is required to run on Heroku
 # $PORT is set by Heroku			
-CMD gunicorn --bind 0.0.0.0:$PORT wsgi 
+CMD ["gunicorn", "--bind", "0.0.0.0:$PORT", "wsgi"]
 
