@@ -12,7 +12,7 @@ variables:
     DOCKER_IMAGE_NAME: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
 
 linter_flake8:
-   stage: lintflake
+   stage: lint
    script:
      - apk add --no-cache python3 py3-pip
      - pip install flake8
@@ -41,9 +41,9 @@ compilation:
     - if: $CI_COMMIT_BRANCH
       exists:
         - Dockerfile
-  artefacts:
-      path:
-          - flask-app.war
+  artifacts:
+    paths:
+        - flask-app.war
 
 
 package:
