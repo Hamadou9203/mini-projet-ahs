@@ -18,11 +18,11 @@ variables:
 .template_tests: &test
   script:
    - docker load -i flask-app.war
-   - docker run  -d -p 80:5000 --env PORT=$INT_PORT --name flask-app $DOCKER_IMAGE_NAME
+   - docker run  -d -p $EXT_PORT:$INT_PORT --env PORT=$INT_PORT --name flask-app $DOCKER_IMAGE_NAME
    - sleep 10
    - docker ps
    - apk add --no-cache curl 
-   - curl http://flask/ | grep -q "Hello"
+   - curl http://$DOMAIN:$EXT_PORT | grep -q "Hello"
 
 
 #check app code
