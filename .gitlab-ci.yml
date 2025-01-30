@@ -54,11 +54,8 @@ compilation:
 scanning:
   image:
     name: docker.io/aquasec/trivy:latest
-    #entrypoint: [""]
+    entrypoint: [""]
   stage: scan
-  before_script:
-    - echo $CI_REGISTRY_PASSWORD | docker login $CI_REGISTRY -u $CI_REGISTRY_USER --password-stdin
-  # All branches are tagged with $DOCKER_IMAGE_NAME (defaults to commit ref slug)
   
   script:
     - docker load -i flask-app.war 
