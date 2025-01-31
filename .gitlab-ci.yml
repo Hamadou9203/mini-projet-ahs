@@ -83,7 +83,7 @@ sonarcloud_analysis:
   stage: sonar_analysis
   image: sonarsource/sonar-scanner-cli:latest
   script:
-    - sonar-scanner  -Dsonar.host.url=SONAR_HOST_URL -Dsonar.login=$SONAR_TOKEN
+    - sonar-scanner  -Dsonar.host.url=$SONAR_HOST_URL -Dsonar.login=$SONAR_TOKEN
   
 
 
