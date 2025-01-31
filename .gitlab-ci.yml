@@ -68,7 +68,7 @@ compilation:
 scanning:
   stage: scan
   script:
-    - docker load -i flask-app.war 
+#    - docker load -i flask-app.war 
     - docker run --rm aquasec/trivy image "$DOCKER_IMAGE_NAME" --no-progress 
 
 Tests_Automatises:
@@ -92,7 +92,7 @@ package:
  before_script:
     - echo $CI_REGISTRY_PASSWORD | docker login $CI_REGISTRY -u $CI_REGISTRY_USER --password-stdin
  only:
-     - master
+     - main
      - merge_requests
  script:
    - docker load -i flask-app.war 
