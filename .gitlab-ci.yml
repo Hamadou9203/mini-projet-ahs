@@ -3,6 +3,11 @@ services:
     - name: docker:dind
       alias: flask
 
+.only-default: &only-default
+  only:
+    - branches
+    - merge_requests
+
 stages:
     - lint
     - build
@@ -27,6 +32,7 @@ variables:
 
 
 .template_tests: &test
+  <<: *only-default
   script:
    - docker load -i flask-app.war
    - docker run  -d -p $EXT_PORT:$INT_PORT --env PORT=$INT_PORT --name flask-app $DOCKER_IMAGE_NAME
@@ -39,6 +45,7 @@ variables:
 #check app code
 linter_flake8:
    stage: lint
+   <<: *only-default
    script:
      - apk add --no-cache python3 py3-pip
      - python3 -m venv venv  # Créer un environnement virtuel
@@ -49,6 +56,7 @@ linter_flake8:
 # check Dockerfile
 linter_hadolink:
     stage: lint
+    <<: *only-default
     script:
       - docker run --rm -i hadolint/hadolint < Dockerfile
 
@@ -56,7 +64,7 @@ linter_hadolink:
 compilation:
   # Use the official docker image.
   stage: build
-  
+  <<: *only-default
   before_script:
     - echo $CI_REGISTRY_PASSWORD | docker login $CI_REGISTRY -u $CI_REGISTRY_USER --password-stdin
   # All branches are tagged with $DOCKER_IMAGE_NAME (defaults to commit ref slug)
@@ -66,10 +74,6 @@ compilation:
 #    - docker push "$DOCKER_IMAGE_NAME"
     - docker save -o flask-app.war "$DOCKER_IMAGE_NAME"
   # Run this job in a branch where a Dockerfile exists
-  rules:
-    - if: $CI_COMMIT_BRANCH
-      exists:
-        - Dockerfile
   artifacts:
     paths:
         - flask-app.war
@@ -77,6 +81,7 @@ compilation:
 # scanning image using trivy
 scanning:
   stage: scan
+  <<: *only-default
   script:
     - docker load -i flask-app.war 
     - docker run --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy image "$DOCKER_IMAGE_NAME" --no-progress 
@@ -90,6 +95,7 @@ Tests_Automatises:
 
 # Etape d'analyse SonarCloud
 sonarcloud_analysis:
+  <<: *only-default
   stage: sonar_analysis
   image: sonarsource/sonar-scanner-cli:latest
   script:
@@ -260,6 +266,7 @@ stop review:
 
 sortie:
    stage: fin
+   <<: *only-default
    script:
     - echo "fin du ${CI_COMMIT_MESSAGE} avec succés" 
 
