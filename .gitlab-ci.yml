@@ -113,7 +113,8 @@ package:
         docker tag "$DOCKER_IMAGE_NAME" "$CI_REGISTRY_IMAGE:latest"
         docker push "$CI_REGISTRY_IMAGE:latest"
       fi
-
+ dependencies:
+   - compilation
 
 deploy review:
   stage: deploy-review
@@ -176,7 +177,7 @@ deploy review:
     - |
       echo $PUBLIC_IP
       if [ -z "$PUBLIC_IP" ]; then
-        echo "Aucune instance trouvée avec le tag '$TAG'."
+        echo "Aucune adresse IP publique associé a instance trouvée avec le tag '$TAG'."
         exit 1
       fi
 
@@ -260,6 +261,6 @@ stop review:
 sortie:
    stage: fin
    script:
-    - echo "${CI_COMMIT_MESSAGE} avec succés" 
+    - echo "fin du ${CI_COMMIT_MESSAGE} avec succés" 
 
 
