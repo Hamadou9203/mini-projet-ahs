@@ -9,14 +9,14 @@ Projetperso AHS              # Dossier racine du projet (non versionner)
 |
 +--webapp                    # (Branch master) contient l'ensemble des codes relatifs a l'appication
 |  |
-|  +--_1_app.py               # Contiens tous les plans et toutes les modélisations du projet
+|  +--_1_app.py               
 |  |
-|  +--_2 requirements.txt     # Contiens toute la partie programmation du projet
+|  +--_2 requirements.txt     
 |  |
-|  +--_2 test.py             # Contient toutes les parties des circuits imprimés 
+|  +--_2 test.py             
 |  |                   
 |  |
-|  +--_3 wsgi.py           # Contiens toutes les documentations techniques des différents composants
+|  +--_3 wsgi.py           
 |  |                   
 |
 +--.dockerignore              # Dossier racine de la documentation qui doit être publiée
