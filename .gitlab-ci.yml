@@ -17,6 +17,10 @@ stages:
     - release
     - deploy-review
     - stop-review
+    - staging
+    - test-staging
+    - prod
+    - test-prod
     - fin
 
 variables:
@@ -40,6 +44,39 @@ variables:
    - docker ps
    - apk add --no-cache curl 
    - curl http://$DOMAIN:$EXT_PORT | grep -q "Hello"
+
+.deploy_template: &deployment 
+  only:
+   - main
+  script:
+    - apk add openssh-client
+    - eval $(ssh-agent -s)
+    - mkdir -p ~/.ssh
+    - chmod -R 400 ~/.ssh
+    - touch ~/.ssh/known_hosts
+    - cd ~/.ssh
+    - echo "${SSH_KEY}" > id_rsa
+    - chmod 0400 id_rsa
+    - ssh-keyscan -t rsa  ${URL_ACCESS} >> ~/.ssh/known_hosts
+    - command1="echo $CI_REGISTRY_PASSWORD | docker login $CI_REGISTRY -u $CI_REGISTRY_USER --password-stdin"
+    - command2="docker pull $CI_REGISTRY_IMAGE:latest"
+    - command3="docker rm -f static-webapp"
+    - command4="docker run -d -p $EXT_PORT:$INT_PORT --env PORT=$INT_PORT --name static-webapp $CI_REGISTRY_IMAGE:latest"
+    - ssh -t ${SSH_USER}@${URL_ACCESS} 
+      -o SendEnv=CI_REGISTRY_IMAGE
+      -o SendEnv=CI_REGISTRY_USER 
+      -o SendEnv=CI_REGISTRY_PASSWORD 
+      -o SendEnv=CI_REGISTRY 
+      -C "$command1 && $command2 && $command3 && $command4"
+
+.test_template: &testdeploy
+ image: alpine
+ only:
+   - main
+ script:
+  - apk --no-cache add curl
+  - curl http://$DOMAIN:$EXT_PORT
+
 
 
 #check app code
@@ -124,6 +161,45 @@ package:
       fi
  dependencies:
    - compilation
+
+deploy staging: 
+  <<: *deployment
+  stage: staging
+  environment:
+    name: RECETTE
+    url: http://${URL_PREPROD}:$EXT_PORT
+  variables:
+    URL_ACCESS: ${URL_PREPROD}
+
+Test staging: 
+  <<: *testdeploy
+  stage: test-staging
+  environment:
+    name: STAGING_TEST
+    url: http://$DOMAIN:$EXT_PORT
+  variables:
+    DOMAIN: ${URL_PREPROD}
+
+
+deploy production: 
+  <<: *deployment
+  stage: prod
+  environment:
+    name: PRODUCTION
+    url: http://${URL_PROD}:$EXT_PORT
+  variables:
+    URL_ACCESS: ${URL_PROD}
+
+Test prod: 
+  <<: *test
+  stage: test-prod
+  environment:
+    name: PRODUCTION_TEST
+    url: http://${DOMAIN}:$EXT_PORT
+  variables:
+    DOMAIN: ${URL_PROD}
+
+
 
 deploy review:
   stage: deploy-review
