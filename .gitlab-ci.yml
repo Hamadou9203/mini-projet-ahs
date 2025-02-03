@@ -96,6 +96,8 @@ Tests_Automatises:
 # Etape d'analyse SonarCloud
 sonarcloud_analysis:
  # <<: *only-default
+  only:
+     - main
   stage: sonar_analysis
   image: sonarsource/sonar-scanner-cli:latest
   script:
