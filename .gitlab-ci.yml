@@ -99,7 +99,7 @@ sonarcloud_analysis:
   stage: sonar_analysis
   image: sonarsource/sonar-scanner-cli:latest
   script:
-    - sonar-scanner -Dsonar.projectKey=$SONAR_PROJET_KEY -Dsonar.sources=. -Dsonar.organization=$SONAR_ORG -Dsonar.host.url=$SONAR_HOST_URL -Dsonar.login=$SONAR_TOKEN -Dsonar.pullrequestkey=$CI_MERGE_REQUEST_IID -Dsonar.pullrequest.branch=$CI_COMMIT_REF_NAME -Dsonar.pullrequest.base=$CI_MERGE_REQUEST_TARGET_BRANCH_NAME
+    - sonar-scanner -Dsonar.projectKey=$SONAR_PROJET_KEY -Dsonar.sources=. -Dsonar.organization=$SONAR_ORG -Dsonar.host.url=$SONAR_HOST_URL -Dsonar.login=$SONAR_TOKEN -Dsonar.pullrequest.key=$CI_MERGE_REQUEST_IID -Dsonar.pullrequest.branch=$CI_COMMIT_REF_NAME -Dsonar.pullrequest.base=$CI_MERGE_REQUEST_TARGET_BRANCH_NAME
   
   
 
