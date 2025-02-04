@@ -132,14 +132,17 @@ Tests_Automatises:
 
 # Etape d'analyse SonarCloud
 sonarcloud_analysis:
- # <<: *only-default
-  only:
-     - main
+  <<: *only-default
   stage: sonar_analysis
   image: sonarsource/sonar-scanner-cli:latest
   script:
-    - sonar-scanner -Dsonar.projectKey=$SONAR_PROJET_KEY -Dsonar.sources=. -Dsonar.organization=$SONAR_ORG -Dsonar.host.url=$SONAR_HOST_URL -Dsonar.login=$SONAR_TOKEN 
-  
+    -  |
+        if [[ -z $CI_MERGE_REQUEST_IID ]]; then \
+             sonar-scanner -Dsonar.projectKey=$SONAR_PROJET_KEY -Dsonar.sources=. -Dsonar.organization=$SONAR_ORG -Dsonar.host.url=$SONAR_HOST_URL -Dsonar.token=$SONAR_TOKEN ; \
+        else \
+              sonar-scanner -Dsonar.pullrequestkey=$CI_MERGE_REQUEST_IID -Dsonar.pullrequest.branch=$CI_COMMIT_REF_NAME -Dsonar.pullrequest.base=$CI_MERGE_REQUEST_TARGET_BRANCH_NAME
+         fi
+
   
 
 
