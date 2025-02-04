@@ -15,7 +15,11 @@ L'objectif de ce projet est de créer une pipeline d'intégration continue (CI) 
                                                      +--Dockerfile                # contient les specifications du conteneurs 
 
 
-                        Worflow 
+                       
+                        
+                       
+												
+						                            Worflow 
       
     Sur la branche principale (main), toutes les étapes doivent être exécutées, sauf le déploiement en review.
     Sur les autres branches, seules les étapes suivantes doivent être exécutées :
