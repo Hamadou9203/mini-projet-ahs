@@ -6,7 +6,6 @@ L'objectif de ce projet est de créer une pipeline d'intégration continue (CI) 
                                                      Arborescence 
 
 Projetperso AHS              # Dossier racine du projet (non versionner)
-|
 +--webapp                    # (Branch master) contient l'ensemble des codes relatifs a l'appication
 |  +--_1_app.py               
 |  +--_2 requirements.txt     
