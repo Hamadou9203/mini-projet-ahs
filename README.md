@@ -27,7 +27,7 @@ L'objectif de ce projet est de créer une pipeline d'intégration continue (CI) 
                                                      +--.gitlab-ci.yml              # Contient Jobs de la pipeline 
                                                      +--Dockerfile                # contient les specifications du conteneur
 
-
+![cover]https://github.com/Hamadou9203/mini-projet-ahs/blob/main/Capture%20d%E2%80%99e%CC%81cran%202025-02-04%20a%CC%80%2015.30.00.png
              
 
 
