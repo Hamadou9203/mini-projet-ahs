@@ -1,9 +1,9 @@
-                                      Projet : Création d'une Pipeline CI/CD avec GitLab
+                                      # Projet : Création d'une Pipeline CI/CD avec GitLab
 
-                                                    Objectif
+                                                    ## Objectif
 L'objectif de ce projet est de créer une pipeline d'intégration continue (CI) et de déploiement continu (CD) pour le déploiement d'une application web Flask sur un serveur accessible via SSH tout en mettant en œuvre les étapes nécessaires pour garantir la qualité et la sécurité du code tout en automatisant le processus de déploiement.
 
-                                                     Arborescence 
+                                                     ## Arborescence 
                                                      Projetperso AHS               # Dossier racine du projet (non versionner)
                                                      +--webapp                    # (Branch master) contient l'ensemble des codes relatifs a l'appication
                                                      |  +--_1_app.py               
@@ -19,7 +19,7 @@ L'objectif de ce projet est de créer une pipeline d'intégration continue (CI) 
                         
                        
 												
-						                            Worflow 
+						                           ## Worflow 
       
     Sur la branche principale (main), toutes les étapes doivent être exécutées, sauf le déploiement en review.
     Sur les autres branches, seules les étapes suivantes doivent être exécutées :
