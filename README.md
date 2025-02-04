@@ -25,7 +25,7 @@ L'objectif de ce projet est de créer une pipeline d'intégration continue (CI) 
                                                      |  +--_3 wsgi.py                             
                                                      +--.dockerignore              # IGNORE
                                                      +--.gitlab-ci.yml              # Contient Jobs de la pipeline 
-                                                     +--Dockerfile                # contient les specifications du conteneurs 
+                                                     +--Dockerfile                # contient les specifications du conteneur
 
 
              
