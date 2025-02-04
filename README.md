@@ -1,7 +1,7 @@
-Projet : Création d'une Pipeline CI/CD avec GitLab
+                                      Projet : Création d'une Pipeline CI/CD avec GitLab
 
                                                     Objectif
-L'objectif de ce projet est de créer une pipeline d'intégration continue (CI) et de déploiement continu (CD) pour le déploiement d'une application web Flask sur un serveur accessible via SSH. L'apprenant devra mettre en œuvre les étapes nécessaires pour garantir la qualité et la sécurité du code tout en automatisant le processus de déploiement.
+L'objectif de ce projet est de créer une pipeline d'intégration continue (CI) et de déploiement continu (CD) pour le déploiement d'une application web Flask sur un serveur accessible via SSH tout en mettant en œuvre les étapes nécessaires pour garantir la qualité et la sécurité du code tout en automatisant le processus de déploiement.
 
                                                      Arborescence 
                                                      Projetperso AHS               # Dossier racine du projet (non versionner)
