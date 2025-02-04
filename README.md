@@ -2,6 +2,19 @@
 
                                                     ## Objectif
 L'objectif de ce projet est de créer une pipeline d'intégration continue (CI) et de déploiement continu (CD) pour le déploiement d'une application web Flask sur un serveur accessible via SSH tout en mettant en œuvre les étapes nécessaires pour garantir la qualité et la sécurité du code tout en automatisant le processus de déploiement.
+                                                      
+						 ## Worflow 
+      Sur la branche principale (main), toutes les étapes doivent être exécutées, sauf le déploiement en review.
+    Sur les autres branches, seules les étapes suivantes doivent être exécutées :
+        Linter
+        Compilation
+        Scan de Sécurité (Image Docker)
+        Tests Automatisés
+        Vérification de la Qualité de Code
+    Lors d'une Pull Request (PR), en plus des étapes précédentes, les étapes de packaging et de déploiement en review doivent être exécutées.
+
+
+
 
                                                      ## Arborescence 
                                                      Projetperso AHS               # Dossier racine du projet (non versionner)
@@ -15,17 +28,10 @@ L'objectif de ce projet est de créer une pipeline d'intégration continue (CI) 
                                                      +--Dockerfile                # contient les specifications du conteneurs 
 
 
-                       
-                        
-                       
+             
+
+
+                      
+
 												
-						                           ## Worflow 
-      
-    Sur la branche principale (main), toutes les étapes doivent être exécutées, sauf le déploiement en review.
-    Sur les autres branches, seules les étapes suivantes doivent être exécutées :
-        Linter
-        Compilation
-        Scan de Sécurité (Image Docker)
-        Tests Automatisés
-        Vérification de la Qualité de Code
-    Lors d'une Pull Request (PR), en plus des étapes précédentes, les étapes de packaging et de déploiement en review doivent être exécutées.
+						                          
