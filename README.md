@@ -28,9 +28,19 @@ L'objectif de ce projet est de créer une pipeline d'intégration continue (CI) 
                                                      +--Dockerfile                # contient les specifications du conteneur
 
 	   
+les images ci-dessous montrent les pipelines 
+![Cover](https://github.com/Hamadou9203/mini-projet-ahs/blob/main/img/%20pipeline1.png)
 
-![Cover](https://github.com/Hamadou9203/mini-projet-ahs/blob/main/Capture%20d%E2%80%99e%CC%81cran%202025-02-04%20a%CC%80%2015.30.00.png)
-             
+![Cover](https://github.com/Hamadou9203/mini-projet-ahs/blob/main/img/%20pipeline2.png)
+
+![Cover](https://github.com/Hamadou9203/mini-projet-ahs/blob/main/img/%20pipeline3.png)
+
+les tests des environnements sont montrés sur les captures suivants 
+![Cover](https://github.com/Hamadou9203/mini-projet-ahs/blob/main/img/%20test1.png)
+
+![Cover](https://github.com/Hamadou9203/mini-projet-ahs/blob/main/img/%20env1.png)
+
+![Cover](https://github.com/Hamadou9203/mini-projet-ahs/blob/main/img/%20sonar.png)             
 la figure ci-dessus montre l'analyse de la qualité d'image avec sonarcloud
 
                       
