@@ -35,7 +35,7 @@ les images ci-dessous montrent les pipelines
 
 ![Cover](https://github.com/Hamadou9203/mini-projet-ahs/blob/main/img/pipeline3.png)
 
-les tests des environnements sont montrés sur les captures suivants 
+les tests d'acceptances des environnements sont montrés sur les captures suivants 
 ![Cover](https://github.com/Hamadou9203/mini-projet-ahs/blob/main/img/test1.png)
 
 ![Cover](https://github.com/Hamadou9203/mini-projet-ahs/blob/main/img/env1.png)
@@ -43,7 +43,8 @@ les tests des environnements sont montrés sur les captures suivants
 ![Cover](https://github.com/Hamadou9203/mini-projet-ahs/blob/main/img/sonar.png)             
 la figure ci-dessus montre l'analyse de la qualité d'image avec sonarcloud
 
-                      
-
+les tests de validation en production et en staging 
+![Cover](https://github.com/Hamadou9203/mini-projet-ahs/blob/main/img/test-prod.png)               
+![Cover](https://github.com/Hamadou9203/mini-projet-ahs/blob/main/img/test-staging.png)  
 												
 						                          
