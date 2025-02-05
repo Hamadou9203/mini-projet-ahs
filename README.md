@@ -31,16 +31,16 @@ L'objectif de ce projet est de créer une pipeline d'intégration continue (CI) 
 les images ci-dessous montrent les pipelines 
 ![Cover](https://github.com/Hamadou9203/mini-projet-ahs/blob/main/img/%20pipeline1.png)
 
-![Cover](https://github.com/Hamadou9203/mini-projet-ahs/blob/main/img/%20pipeline2.png)
+![Cover](https://github.com/Hamadou9203/mini-projet-ahs/blob/main/img/pipeline2.png)
 
-![Cover](https://github.com/Hamadou9203/mini-projet-ahs/blob/main/img/%20pipeline3.png)
+![Cover](https://github.com/Hamadou9203/mini-projet-ahs/blob/main/img/pipeline3.png)
 
 les tests des environnements sont montrés sur les captures suivants 
-![Cover](https://github.com/Hamadou9203/mini-projet-ahs/blob/main/img/%20test1.png)
+![Cover](https://github.com/Hamadou9203/mini-projet-ahs/blob/main/img/test1.png)
 
-![Cover](https://github.com/Hamadou9203/mini-projet-ahs/blob/main/img/%20env1.png)
+![Cover](https://github.com/Hamadou9203/mini-projet-ahs/blob/main/img/env1.png)
 
-![Cover](https://github.com/Hamadou9203/mini-projet-ahs/blob/main/img/%20sonar.png)             
+![Cover](https://github.com/Hamadou9203/mini-projet-ahs/blob/main/img/sonar.png)             
 la figure ci-dessus montre l'analyse de la qualité d'image avec sonarcloud
 
                       
