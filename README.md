@@ -44,7 +44,9 @@ les tests d'acceptances des environnements sont montrés sur les captures suivan
 la figure ci-dessus montre l'analyse de la qualité d'image avec sonarcloud
 
 les tests de validation en production et en staging 
-![Cover](https://github.com/Hamadou9203/mini-projet-ahs/blob/main/img/test-prod.png)               
+
+![Cover](https://github.com/Hamadou9203/mini-projet-ahs/blob/main/img/test-prod.png)     
+
 ![Cover](https://github.com/Hamadou9203/mini-projet-ahs/blob/main/img/test-staging.png)  
 												
 						                          
